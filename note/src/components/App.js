@@ -14,8 +14,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NoteContainer notes={this.props.notes} />
         <NoteForm />
+        <NoteContainer notes={this.props.notes} />
       </div>
     );
   }

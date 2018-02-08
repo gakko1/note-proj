@@ -14,7 +14,7 @@ export const ERROR = 'ERROR';
 export const getNotes = () => {
   return dispatch => {
     dispatch({ type: FETCHING_NOTES });
-    axios.get('https://my.api.mockaroo.com/notes.json?key=23d7eeb0')
+    axios.get('http://localhost:3000/users')
     .then(({data}) => {
       dispatch({ type: NOTES_FETCHED, payload: data });
     })
@@ -27,13 +27,13 @@ export const getNotes = () => {
 export const createNote = (note) => {
   return dispatch => {
     dispatch({ type: CREATING_NOTE });
-    axios.post('https://my.api.mockaroo.com/notes.json?key=23d7eeb0&__method=POST', note)
+    axios.post('http://localhost:3000/users', note)
     .then(({data}) => {
       dispatch({ type: NOTE_CREATED, payload: data });
     })
     .then(() => {
       dispatch({ type: FETCHING_NOTES })
-      axios.get('https://my.api.mockaroo.com/notes.json?key=23d7eeb0')
+      axios.get('http://localhost:3000/users')
       .then(({data}) => {
         dispatch({ type: NOTES_FETCHED, payload: data })
       })
@@ -41,6 +41,8 @@ export const createNote = (note) => {
         dispatch({ type: ERROR, payload: err})
       })
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+      dispatch({ type: ERROR, payload: err })
+    });
   }
 }
