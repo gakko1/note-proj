@@ -1,4 +1,3 @@
-import '../data';
 import axios from 'axios';
 
 export const FETCHING_NOTES = 'FETCHING_NOTES';
@@ -15,11 +14,7 @@ export const ERROR = 'ERROR';
 export const getNotes = () => {
   return dispatch => {
     dispatch({ type: FETCHING_NOTES });
-    // axios.get();
-    fetch('../data.js')
-    .then(res => {
-      return res.json();
-    })
+    axios.get('https://my.api.mockaroo.com/notes.json?key=23d7eeb0')
     .then(({data}) => {
       dispatch({ type: NOTES_FETCHED, payload: data });
     })
@@ -32,13 +27,13 @@ export const getNotes = () => {
 export const createNote = (note) => {
   return dispatch => {
     dispatch({ type: CREATING_NOTE });
-    axios.post('../data.js', note)
+    axios.post('https://my.api.mockaroo.com/notes.json?key=23d7eeb0&__method=POST', note)
     .then(({data}) => {
-      dispatch({ type: NOTE_CREATED });
+      dispatch({ type: NOTE_CREATED, payload: data });
     })
     .then(() => {
       dispatch({ type: FETCHING_NOTES })
-      axios.get('../data.js')
+      axios.get('https://my.api.mockaroo.com/notes.json?key=23d7eeb0')
       .then(({data}) => {
         dispatch({ type: NOTES_FETCHED, payload: data })
       })

@@ -1,35 +1,34 @@
-import React from 'react';
-import { Link, Route } from 'react-router-dom';
-import { getNotes } from '../actions';
+import React from "react";
+import { Link, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { getNotes } from "../actions";
+import "./NoteContainer.css";
 
-export default class noteContainer extends React.Component {
-  state = {
-    notes: [],
-  }
-
-  componentDidMount() {
-    this.setState({
-      notes: this.props.getNotes()
-    })
-  }
-
+class NoteContainer extends React.Component {
   render() {
     return (
       <div>
         <h1>THESE ARE THE NOTES AVAILABLE</h1>
-        <ul>
-          {this.state.notes.map((item, i) => {
+        <ul className="NoteList">
+          {this.props.notes.map((item, i) => {
             return (
-              <li key={i}>
+              <li key={i} className="NoteList__items">
                 {/* <Link to={'./notes/' + item} component={notes.item}>{item.id}</Link>
                 <Route path={'./notes/' + item} component={notes.item} /> */}
-                {item.name}
-                {item.note}
+                <div>
+                  <h2>{item.name}</h2>
+                  <h4>{item.title}</h4>
+                  <div className="NoteList__body">
+                    <p>{item.note}</p>
+                  </div>
+                </div>
               </li>
-            )
+            );
           })}
-        </ul>               
+        </ul>
       </div>
-    )
+    );
   }
 }
+
+export default connect(null, { getNotes })(NoteContainer);

@@ -1,0 +1,35 @@
+.NoteList .NoteList__items {
+  list-style: none;
+  display: inline-flex;
+  width: 100%;
+  max-width: 400px;
+  /* background: red; */
+  justify-content: center;
+  border: 1px black solid;
+  height: 200px;
+  margin: 5px;
+  box-shadow: 2px 2px black;
+}
+
+.NoteList {
+  /* background: purple; */
+}
+
+.NoteList .NoteList__items h2 {
+  /* background: orange; */
+  width: 100%;
+  font-weight: bold;
+}
+
+.NoteList .NoteList__items h4 {
+  text-decoration: underline;
+}
+
+.NoteList__body {
+  /* border: 1px black solid; */
+  padding: 3px;
+}
+
+.NoteList .NoteList__items p {
+  font-size: 0.9rem;
+}

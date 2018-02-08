@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { createNote } from "../actions";
 
-class noteForm extends Component {
+class NoteForm extends Component {
   state = {
     name: "",
     title: "",
@@ -16,7 +17,7 @@ class noteForm extends Component {
 
   submitChangeHandler = event => {
     event.preventDefault();
-    this.props.addNote(this.state);
+    this.props.createNote(this.state);
     this.setState({
       name: "",
       title: "",
@@ -27,6 +28,7 @@ class noteForm extends Component {
   render() {
     return (
       <div className="noteForm">
+        Add a new note:
         <form onSubmit={this.submitChangeHandler}>
           <input
             onChange={this.inputChangeHandler}
@@ -52,3 +54,5 @@ class noteForm extends Component {
     );
   }
 }
+
+export default NoteForm;

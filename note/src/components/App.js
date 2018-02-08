@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import noteForm from "./noteForm";
-import noteContainer from "./noteContainer";
+import NoteForm from "./NoteForm";
+import NoteContainer from "./NoteContainer";
 import { getNotes } from '../actions';
 import { connect } from 'react-redux';
 
@@ -14,8 +14,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <noteContainer />
-        <noteForm />
+        <NoteContainer notes={this.props.notes} />
+        <NoteForm />
       </div>
     );
   }
@@ -26,8 +26,11 @@ App.defaultProps = {
 }
 
 const MapStateToProps = state => {
+  const { noteReducer } = state;
   return {
-    notes: props.notes,
+    notes: noteReducer.notes,
+    error: noteReducer.error,
+    fetchingNotes: noteReducer.fetchingNotes,
   }
 }
 

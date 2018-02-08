@@ -18,21 +18,21 @@ const noteReducer = (state = initialState, action) => {
     case FETCHING_NOTES:
       return {...state, fetchingNotes: true};
     case NOTES_FETCHED:
-      return {...state, fetchingNotes: false, notesFetched: true, notes: action.payload};
+      return {...state, notes: action.payload, fetchingNotes: false, notesFetched: true,};
     case CREATING_NOTE:
       return {...state, creatingNote: true};
     case NOTE_CREATED:
-      return {...state, noteCreated: true, creatingNote: false};
+      return {...state, notes: action.payload, noteCreated: true, creatingNote: false};
     case DELETING_NOTE:
       return {...state, deletingNote: true};
     case NOTE_DELETED:
-      return {...state, noteDeleted: true, deletingNote: false};
+      return {...state, notes: action.payload, noteDeleted: true, deletingNote: false};
     case EDITING_NOTE:
       return {...state, editingNote: true};
     case NOTE_EDITED:
-      return {...state, noteEdited: true, editingNote: false};
+      return {...state, notes: action.payload, noteEdited: true, editingNote: false};
     case ERROR:
-      return {...state, error: action.payload};
+      return {...state, fetchingNotes: false, creatingNote: false, deletingNote: false, editingNote: false, error: action.payload};
     default:
       return state;
   }
