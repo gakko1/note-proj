@@ -34,3 +34,13 @@
 .NoteList .NoteList__items p {
   font-size: 0.9rem;
 }
+
+.NoteEdits {
+  /* display: inline-flex;
+  width: 100%; */
+}
+
+.NoteEdits .NoteEdits__components {
+  display: inline-flex;
+  width: 100%
+}

@@ -21,12 +21,12 @@ class NoteContainer extends React.Component {
   };
 
   render() {
-    console.log("PROPS", this.props);
+    console.log("PROPS", this.props.notes);
     return (
       <div>
-        <h1>THESE ARE THE NOTES AVAILABLE</h1>
+        <h1>Jacob's Notes</h1>
         <ul className="NoteList">
-          {this.props.notes.map(item => {
+          {Array.from(this.props.notes).map(item => {
             return (
               <li
                 key={item.id}
@@ -46,13 +46,20 @@ class NoteContainer extends React.Component {
             );
           })}
         </ul>
-        <SelectedNote
-          showNoteHandler={this.showNoteHandler}
-          toggleShowUpdate={this.toggleShowUpdate}
-          deleteNoteHandler={this.deleteNoteHandler}
-          selected={this.props.noteSelected}
-        />
-        <UpdateNoteForm selected={this.props.noteSelected} />
+        <hr />
+        <div className="NoteEdits">
+          {Object.keys(this.props.noteSelected).length > 0 ? (
+            <div className="NoteEdits__components">
+              <SelectedNote
+                showNoteHandler={this.showNoteHandler}
+                toggleShowUpdate={this.toggleShowUpdate}
+                deleteNoteHandler={this.deleteNoteHandler}
+                selected={this.props.noteSelected}
+              />
+              <UpdateNoteForm selected={this.props.noteSelected} />
+            </div>
+          ) : null}
+        </div>
       </div>
     );
   }

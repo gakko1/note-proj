@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { editNote } from "../actions";
+import './UpdateNoteForm.css';
 
 class UpdateNoteForm extends React.Component {
   constructor(props) {
@@ -33,23 +34,27 @@ class UpdateNoteForm extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className="UpdateNoteForm">
+        <h4>...Or you can edit the contents of the note!</h4>
         <input
           onChange={this.inputChangeHandler}
           placeholder={this.props.selected.name}
           name="name"
         />
+        <br />
         <input
           onChange={this.inputChangeHandler}
           placeholder={this.props.selected.title}
           name="title"
         />
+        <br />
         <input
           onChange={this.inputChangeHandler}
           placeholder={this.props.selected.note}
           name="note"
         />
-        <button onClick={this.submitChangeHandler}>{`Update ${
+        <br />
+        <button onClick={this.submitChangeHandler}>{`Update the post: ${
           this.props.selected.title
         }`}</button>
       </form>

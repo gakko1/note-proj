@@ -59,6 +59,13 @@ export const deleteNote = id => {
       .then(({ data }) => {
         dispatch({ type: NOTE_DELETED, payload: data });
         dispatch({ type: SINGLE_NOTE, payload: {} });
+        axios.get('http://localhost:3000/users')
+        .then(({ data }) => {
+          dispatch({ type: NOTES_FETCHED, payload: data });
+        })
+        .catch(err => {
+          dispatch({ type: ERROR, payload: err });
+        })
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });
@@ -85,6 +92,13 @@ export const editNote = ({ id, name, title, note }) => {
     axios.patch(`http://localhost:3000/users/${id}`, { name, title, note })
     .then(({ data }) => {
       dispatch({ type: NOTE_EDITED, payload: data });
+      axios.get('http://localhost:3000/users')
+      .then(({ data }) => {
+        dispatch({ type: NOTES_FETCHED, payload: data });
+      })
+      .catch(err => {
+        dispatch({ type: ERROR, payload: err });
+      })
     })
     .catch(({err}) => {
       dispatch({ type: ERROR, payload: err });

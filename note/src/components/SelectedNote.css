@@ -9,8 +9,24 @@ div span {
 
 .SelectedNote {
   border: 1px black solid;
-  width: 30%;
+  width: 35%;
   margin: auto;
-  background: rgba(255, 0, 0, 0.192);
+  margin-top: 10px;
+  background: rgba(211, 0, 0, 0.096);
 }
 
+.SelectedNote__contents {
+  border: 1px solid black;
+  box-shadow: 1px 1px black;
+  width: 50%;
+  margin: 5px auto 5px auto;
+  border-radius: 3%;
+}
+
+.SelectedNote__contents--title {
+  text-decoration: underline;
+}
+
+.SelectedNote__contents--body {
+  font-size: 0.9rem;
+}

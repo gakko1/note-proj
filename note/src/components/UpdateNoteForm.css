@@ -1,0 +1,9 @@
+.UpdateNoteForm {
+  border: 1px solid black;
+  width: 35%;
+  margin: auto;
+  background: rgba(0, 0, 168, 0.089);
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
