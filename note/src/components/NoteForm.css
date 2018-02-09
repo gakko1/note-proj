@@ -1,0 +1,8 @@
+.noteForm {
+  border: 1px black solid;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(128, 128, 128, 0.096);
+  position: relative;
+}

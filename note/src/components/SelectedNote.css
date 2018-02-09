@@ -1,0 +1,16 @@
+div span, button{
+  cursor: pointer;
+}
+
+div span {
+  border: 1px black solid;
+  box-shadow: 1px 1px black;
+}
+
+.SelectedNote {
+  border: 1px black solid;
+  width: 30%;
+  margin: auto;
+  background: rgba(255, 0, 0, 0.192);
+}
+
