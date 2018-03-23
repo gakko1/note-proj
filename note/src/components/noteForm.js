@@ -20,7 +20,6 @@ class NoteForm extends Component {
     event.preventDefault();
     this.props.createNote(this.state);
     this.setState({
-      // name: "",
       title: "",
       noteText: ""
     });
@@ -29,26 +28,24 @@ class NoteForm extends Component {
   render() {
     return (
       <div className="noteForm">
-        Add a new note:
+        <div>Add a new note:</div>
+        <br />
         <form onSubmit={this.submitChangeHandler}>
-          {/* <input
-            onChange={this.inputChangeHandler}
-            placeholder="name"
-            name="name"
-            value={this.state.name}
-          /> */}
           <input
             onChange={this.inputChangeHandler}
             placeholder="title"
             name="title"
             value={this.state.title}
           />
+          <br />
           <input
             onChange={this.inputChangeHandler}
             placeholder="note text"
             name="noteText"
             value={this.state.noteText}
           />
+          <br />
+          <br />
           <button>Submit</button>
         </form>
       </div>

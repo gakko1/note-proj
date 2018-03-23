@@ -17,7 +17,8 @@ div span {
   width: 35%;
   margin: auto;
   margin-top: 10px;
-  background: rgba(211, 0, 0, 0.096);
+  margin-bottom: 0;
+  background: rgba(151, 0, 211, 0.096);
 }
 
 .SelectedNote__contents {
@@ -26,6 +27,8 @@ div span {
   width: 50%;
   margin: 5px auto 5px auto;
   border-radius: 3%;
+  overflow: hidden; 
+  white-space: nowrap;
 }
 
 .SelectedNote__contents--title {
@@ -34,4 +37,5 @@ div span {
 
 .SelectedNote__contents--body {
   font-size: 0.9rem;
+  margin-bottom: 10px;
 }

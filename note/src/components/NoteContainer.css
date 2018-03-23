@@ -3,41 +3,31 @@
   display: inline-flex;
   width: 100%;
   max-width: 400px;
-  /* background: red; */
+  background: white;
   justify-content: center;
   border: 1px black solid;
   height: 300px;
   margin: 5px;
   box-shadow: 2px 2px black;
   border-radius: 3%;
-}
-
-.NoteList {
-  /* background: purple; */
+  overflow: hidden; 
+  white-space: nowrap;
+  overflow-y: hidden;
 }
 
 .NoteList .NoteList__items h2 {
-  /* background: orange; */
   width: 100%;
   font-weight: bold;
-}
-
-.NoteList .NoteList__items h4 {
   text-decoration: underline;
 }
 
 .NoteList__body {
-  /* border: 1px black solid; */
   padding: 3px;
 }
 
 .NoteList .NoteList__items p {
-  font-size: 0.9rem;
-}
-
-.NoteEdits {
-  /* display: inline-flex;
-  width: 100%; */
+  font-size: 1.1rem;
+  white-space: initial;
 }
 
 .NoteEdits .NoteEdits__components {

@@ -22,6 +22,11 @@
   font-size: large;
 }
 
+#LogOutButton {
+  float: right;
+  margin: 0 15px 0 0;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

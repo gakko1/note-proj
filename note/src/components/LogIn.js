@@ -55,7 +55,7 @@ class LogIn extends Component {
       <div className="Home">
         <div className="LogInForm">
           <form style={this.state.newUser ? { display: 'none' } : null}>
-            <div>Sign In</div>
+            <div>Sign In:</div>
             <br />
             <input
               type="text"
@@ -71,15 +71,18 @@ class LogIn extends Component {
               onChange={this.logInChangeHandler}
               name="password"
             />
+            <br />
             <button onClick={this.logInAuthorization}>Log In</button>
             <br />
             <br />
             <br />
             <div>Register for an account:</div>
+            <br />
             <button onClick={this.registrationToggle}>Create An Account</button>
           </form>
           <form style={this.state.newUser ? null : { display: 'none' }}>
             <div>Sign up</div>
+            <br />
             <input
               type="text"
               placeholder="username"
@@ -101,8 +104,14 @@ class LogIn extends Component {
               onChange={this.logInChangeHandler}
               name="confirmPW"
             />
+            <br />
+            <br />
             <button onClick={this.registrationAuth}>Sign Up</button>
+            <br />
+            <br />
+            <br />
             <div>Already have an account? Sign in instead</div>
+            <br />
             <button onClick={this.registrationToggle}>Sign In</button>
           </form>
         </div>

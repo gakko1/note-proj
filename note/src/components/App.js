@@ -20,7 +20,8 @@ class App extends Component {
         {this.props.loggedIn ? null : <LogIn />}
         {this.props.loggedIn ? (
           <div className="NotesLoggedIn">
-            <button onClick={this.props.loggedOut}>Log Out</button>
+            <button id="LogOutButton" onClick={this.props.loggedOut}>Log Out</button>
+            <h1>{window.localStorage.getItem('username')}'s Notes</h1>
             <NoteForm />
             <NoteContainer notes={this.props.notes} />
           </div>
