@@ -6,4 +6,22 @@
   margin-top: 10px;
   display: flex;
   flex-direction: column;
+  height: 203.14px;
+}
+
+span {
+  width: 12.67px;
+}
+
+.updateButton {
+  margin-left: auto;
+}
+
+.UpdateNoteForm h4 {
+  margin-top: -6px;
+}
+
+.UpdateNoteForm button {
+  width: auto;
+  margin: auto;
 }

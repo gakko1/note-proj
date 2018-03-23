@@ -1,5 +1,4 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { getNotes, deleteNote, updateNote, toggleShowUpdate } from "../actions";
 import "./NoteContainer.css";
@@ -7,8 +6,12 @@ import UpdateNoteForm from "./UpdateNoteForm";
 import SelectedNote from "./SelectedNote";
 
 class NoteContainer extends React.Component {
+  componentWillMount = () => {
+    this.props.getNotes();   
+  }
+
   deleteNoteHandler = () => {
-    const { id } = this.props.noteSelected;
+    const id = this.props.noteSelected._id;
     this.props.deleteNote(id);
   };
 
@@ -21,25 +24,22 @@ class NoteContainer extends React.Component {
   };
 
   render() {
-    console.log("PROPS", this.props.notes);
     return (
       <div>
-        <h1>Jacob's Notes</h1>
+        <h1>{window.localStorage.getItem('username')}'s Notes</h1>
         <ul className="NoteList">
           {Array.from(this.props.notes).map(item => {
             return (
               <li
-                key={item.id}
+                key={item._id}
                 onClick={() => this.showNoteHandler(item)}
                 className="NoteList__items"
               >
-                {/* <Link to={'./notes/' + item} component={notes.item}>{item.id}</Link>
-                <Route path={'./notes/' + item} component={notes.item} /> */}
                 <div>
                   <h2>{item.name}</h2>
                   <h4>{item.title}</h4>
                   <div className="NoteList__body">
-                    <p>{item.note}</p>
+                    <p>{item.noteText}</p>
                   </div>
                 </div>
               </li>
@@ -56,7 +56,7 @@ class NoteContainer extends React.Component {
                 deleteNoteHandler={this.deleteNoteHandler}
                 selected={this.props.noteSelected}
               />
-              <UpdateNoteForm selected={this.props.noteSelected} />
+              <UpdateNoteForm selected={this.props.noteSelected} showNoteHandler={this.showNoteHandler} />
             </div>
           ) : null}
         </div>

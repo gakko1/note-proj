@@ -1,6 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
-import { editNote } from "../actions";
+import React from 'react';
+import { connect } from 'react-redux';
+import { editNote } from '../actions';
 import './UpdateNoteForm.css';
 
 class UpdateNoteForm extends React.Component {
@@ -8,9 +8,9 @@ class UpdateNoteForm extends React.Component {
     super(props);
 
     this.state = {
-      name: "",
-      title: "",
-      note: ""
+      name: '',
+      title: '',
+      noteText: ''
     };
   }
 
@@ -18,23 +18,25 @@ class UpdateNoteForm extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     });
-    console.log("STATE", this.state);
+    console.log('STATE', this.state);
   };
 
   submitChangeHandler = event => {
     event.preventDefault();
-    const id = this.props.selected.id;
+    const id = this.props.selected._id;
     this.props.editNote({ id, ...this.state });
     this.setState({
-      name: "",
-      title: "",
-      note: ""
+      name: '',
+      title: '',
+      noteText: ''
     });
   };
 
   render() {
+    console.log('UPDATE PROPS', this.props);
     return (
       <form className="UpdateNoteForm">
+        <span className ="updateButton" onClick={() => this.props.showNoteHandler({})}> X </span>
         <h4>...Or you can edit the contents of the note!</h4>
         <input
           onChange={this.inputChangeHandler}
@@ -50,8 +52,8 @@ class UpdateNoteForm extends React.Component {
         <br />
         <input
           onChange={this.inputChangeHandler}
-          placeholder={this.props.selected.note}
-          name="note"
+          placeholder={this.props.selected.noteText}
+          name="noteText"
         />
         <br />
         <button onClick={this.submitChangeHandler}>{`Update the post: ${
@@ -61,7 +63,5 @@ class UpdateNoteForm extends React.Component {
     );
   }
 }
-
-
 
 export default connect(null, { editNote })(UpdateNoteForm);

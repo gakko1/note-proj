@@ -1,0 +1,29 @@
+.Home form {
+  border: 1px black solid;
+  margin: 200px auto;
+  width: 30rem;
+  border-radius: 15px;
+  box-shadow: 1px 1px black; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  background: white;
+}
+
+.Home form button:hover {
+  color: rgb(16, 9, 48);
+  box-shadow: 1px 1px black
+}
+
+.Home form input {
+  text-align: center;
+}
+
+.Home form input:focus {
+  background: rgba(163, 163, 163, 0.253);
+  border: 1px solid black;
+}
+
+html {
+  background: rgba(255, 3, 3, 0.048);
+}

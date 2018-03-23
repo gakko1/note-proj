@@ -5,6 +5,11 @@ div span, button{
 div span {
   border: 1px black solid;
   box-shadow: 1px 1px black;
+  margin: 3px;
+}
+
+.deleteButton {
+  float: right;
 }
 
 .SelectedNote {

@@ -1,29 +1,39 @@
-import React, { Component } from "react";
-import "./App.css";
-import NoteForm from "./NoteForm";
-import NoteContainer from "./NoteContainer";
-import { getNotes } from '../actions';
+import React, { Component } from 'react';
+import './App.css';
+import NoteForm from './NoteForm';
+import NoteContainer from './NoteContainer';
+import { getNotes, loggedOut } from '../actions';
 import { connect } from 'react-redux';
+import LogIn from './LogIn';
+import { stayLoggedIn } from '../actions';
 
 class App extends Component {
-  
-  componentDidMount() {
-    this.props.getNotes();
+  componentWillMount() {
+    if (window.localStorage.getItem('token')) {
+      this.props.stayLoggedIn();
+    }
   }
 
   render() {
     return (
       <div className="App">
-        <NoteForm />
-        <NoteContainer notes={this.props.notes} />
+        {this.props.loggedIn ? null : <LogIn />}
+        {this.props.loggedIn ? (
+          <div className="NotesLoggedIn">
+            <button onClick={this.props.loggedOut}>Log Out</button>
+            <NoteForm />
+            <NoteContainer notes={this.props.notes} />
+          </div>
+        ) : null}
       </div>
     );
   }
 }
 
 App.defaultProps = {
-  notes: [],
-}
+  notes: []
+};
+
 
 const MapStateToProps = state => {
   const { noteReducer } = state;
@@ -31,7 +41,9 @@ const MapStateToProps = state => {
     notes: noteReducer.notes,
     error: noteReducer.error,
     fetchingNotes: noteReducer.fetchingNotes,
-  }
-}
+    loggedIn: noteReducer.loggedIn,
+    loggedOut: noteReducer.loggedOut
+  };
+};
 
-export default connect(MapStateToProps, { getNotes })(App);
+export default connect(MapStateToProps, { getNotes, stayLoggedIn, loggedOut })(App);

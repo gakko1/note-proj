@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "name": "Hagrid",
+      "title": "Harry Potter",
+      "note": "Yer a wizard 'Arry",
+      "id": 1
+    },
+    {
+      "name": "Luke Skywalker",
+      "title": "Star Wars",
+      "note": "May the force be with you",
+      "id": 2
+    },
+    {
+      "name": "Dorothy",
+      "title": "Wizard of Oz",
+      "note": "There's no place like home",
+      "id": 3
+    },
+    {
+      "name": "Sherlock Holmes",
+      "title": "Adventures of Sherlock Holmes",
+      "note": "Elementary, my dear Watson.",
+      "id": 4
+    },
+    {
+      "name": "Aragorn II Elessar",
+      "title": "Lord of the Rings",
+      "note": "My friends. You bow to no one.",
+      "id": 5
+    },
+    {
+      "name": "Obi-Wan",
+      "title": "Star Wars",
+      "note": "I felt a disturbance in the force.",
+      "id": 6
+    }
+  ]
+}

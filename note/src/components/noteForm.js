@@ -5,9 +5,9 @@ import "./NoteForm.css";
 
 class NoteForm extends Component {
   state = {
-    name: "",
+    name: window.localStorage.getItem('username'),
     title: "",
-    note: ""
+    noteText: ""
   };
 
   inputChangeHandler = event => {
@@ -20,9 +20,9 @@ class NoteForm extends Component {
     event.preventDefault();
     this.props.createNote(this.state);
     this.setState({
-      name: "",
+      // name: "",
       title: "",
-      note: ""
+      noteText: ""
     });
   };
 
@@ -31,12 +31,12 @@ class NoteForm extends Component {
       <div className="noteForm">
         Add a new note:
         <form onSubmit={this.submitChangeHandler}>
-          <input
+          {/* <input
             onChange={this.inputChangeHandler}
             placeholder="name"
             name="name"
             value={this.state.name}
-          />
+          /> */}
           <input
             onChange={this.inputChangeHandler}
             placeholder="title"
@@ -46,8 +46,8 @@ class NoteForm extends Component {
           <input
             onChange={this.inputChangeHandler}
             placeholder="note text"
-            name="note"
-            value={this.state.note}
+            name="noteText"
+            value={this.state.noteText}
           />
           <button>Submit</button>
         </form>
